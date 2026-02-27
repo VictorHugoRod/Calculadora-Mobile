@@ -8,7 +8,6 @@ export default function RootLayout() {
   const [zeroAdicionado, setZeroAcidionado] = useState(false)
 
   function adicionaValor(valorParametro: string){
-
     if(operacao === "√"){
       return;
     }else if(valorConta === "0" && valorParametro != ","){
@@ -21,7 +20,6 @@ export default function RootLayout() {
   }
 
   function adicionaOperacao(valorOperacao: string){
-
     if(valorConta.includes("+") ||
        valorConta.includes("-") ||
        valorConta.includes("X") ||
@@ -40,6 +38,18 @@ export default function RootLayout() {
     setOperacao("");
   }
 
+  function apagarCaractere(){
+    if(operacao === "√") setOperacao("")
+
+    if(valorConta.length === 1){
+      setValorConta("0");
+      return;
+    }
+
+    setValorConta(valorConta.slice(0, valorConta.length - 1))
+
+  }
+
   return (
     <SafeAreaView style={styles.container}>
 
@@ -48,7 +58,7 @@ export default function RootLayout() {
       </View>
 
       <View style={styles.linha}>
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={apagarCaractere}>
           <Text style={styles.texto}>⌫</Text>
         </TouchableOpacity>
 
