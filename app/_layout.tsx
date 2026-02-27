@@ -11,7 +11,7 @@ export default function RootLayout() {
 
     if(operacao === "√"){
       return;
-    }else if(valorConta === "0"){
+    }else if(valorConta === "0" && valorParametro != ","){
       setValorConta(valorParametro);
       return;
     }
@@ -128,7 +128,7 @@ export default function RootLayout() {
           <Text style={styles.texto}>0</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor(",")}>
           <Text style={styles.texto}>,</Text>
         </TouchableOpacity>
 
