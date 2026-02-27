@@ -7,13 +7,28 @@ export default function RootLayout() {
   const [operacao, setOperacao] = useState("");
 
   function adicionaValor(valorParametro: string){
-    
+
     if(valorConta === "0" && operacao === ""){
       setValorConta(valorParametro);
     }else{
       setValorConta(valorConta + valorParametro);
     }
 
+  }
+
+  function adicionaOperacao(valorOperacao: string){
+
+    if(valorConta.includes("+") ||
+       valorConta.includes("-") ||
+       valorConta.includes("X") ||
+       valorConta.includes("%") ||
+       valorConta.includes("√")){
+        return;
+    }else{
+        setValorConta(valorConta + valorOperacao);
+        setOperacao(valorOperacao)
+    }
+      
   }
 
   return (
@@ -32,11 +47,11 @@ export default function RootLayout() {
           <Text style={styles.texto}>AC</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoOperacao}>
+        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("√")}>
           <Text style={styles.texto}>√</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoOperacao}>
+        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("%")}>
           <Text style={styles.texto}>%</Text>
         </TouchableOpacity>
       </View>
@@ -54,7 +69,7 @@ export default function RootLayout() {
           <Text style={styles.texto}>9</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoOperacao}>
+        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("X")}>
           <Text style={styles.texto}>X</Text>
         </TouchableOpacity>
       </View>
@@ -72,7 +87,7 @@ export default function RootLayout() {
           <Text style={styles.texto}>6</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoOperacao}>
+        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("-")}>
           <Text style={styles.texto}>-</Text>
         </TouchableOpacity>
       </View>
@@ -90,7 +105,7 @@ export default function RootLayout() {
           <Text style={styles.texto}>3</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoOperacao}>
+        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("+")}>
           <Text style={styles.texto}>+</Text>
         </TouchableOpacity>
       </View>
