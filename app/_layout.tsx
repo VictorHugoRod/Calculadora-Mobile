@@ -3,17 +3,24 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function RootLayout() {
-  const [contador, setContador] = useState(0);
+  const [valorConta, setValorConta] = useState("0");
+  const [operacao, setOperacao] = useState("");
 
-  function somarUm(){
-    setContador(contador+1)
+  function adicionaValor(valorParametro: string){
+    
+    if(valorConta === "0" && operacao === ""){
+      setValorConta(valorParametro);
+    }else{
+      setValorConta(valorConta + valorParametro);
+    }
+
   }
 
   return (
     <SafeAreaView style={styles.container}>
 
       <View style={styles.linhaOperacao}>
-        <text style={styles.textoOperacao}>0</text>
+        <text style={styles.textoOperacao}>{valorConta}</text>
       </View>
 
       <View style={styles.linha}>
@@ -35,15 +42,15 @@ export default function RootLayout() {
       </View>
 
       <View style={styles.linha}>
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("7")}> {/*usar função anonima na chamada por causa dos parâmetros*/}
           <Text style={styles.texto}>7</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("8")}>
           <Text style={styles.texto}>8</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("9")}>
           <Text style={styles.texto}>9</Text>
         </TouchableOpacity>
 
@@ -53,15 +60,15 @@ export default function RootLayout() {
       </View>
 
       <View style={styles.linha}>
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("4")}>
           <Text style={styles.texto}>4</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("5")}>
           <Text style={styles.texto}>5</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("6")}>
           <Text style={styles.texto}>6</Text>
         </TouchableOpacity>
 
@@ -71,15 +78,15 @@ export default function RootLayout() {
       </View>
 
       <View style={styles.linha}>
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("1")}>
           <Text style={styles.texto}>1</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("2")}>
           <Text style={styles.texto}>2</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("3")}>
           <Text style={styles.texto}>3</Text>
         </TouchableOpacity>
 
@@ -93,7 +100,7 @@ export default function RootLayout() {
           <Text style={styles.texto}>+/-</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("0")}>
           <Text style={styles.texto}>0</Text>
         </TouchableOpacity>
 
