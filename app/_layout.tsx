@@ -5,16 +5,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function RootLayout() {
   const [valorConta, setValorConta] = useState("0");
   const [operacao, setOperacao] = useState("");
+  const [zeroAdicionado, setZeroAcidionado] = useState(false)
 
   function adicionaValor(valorParametro: string){
 
-    if(valorConta === "0" && operacao === ""){
-      setValorConta(valorParametro);
-    }else if(operacao === "√"){
+    if(operacao === "√"){
       return;
-    }else{
-      setValorConta(valorConta + valorParametro);
+    }else if(valorConta === "0"){
+      setValorConta(valorParametro);
+      return;
     }
+
+    setValorConta(valorConta + valorParametro);
 
   }
 
