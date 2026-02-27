@@ -10,6 +10,8 @@ export default function RootLayout() {
 
     if(valorConta === "0" && operacao === ""){
       setValorConta(valorParametro);
+    }else if(operacao === "√"){
+      return;
     }else{
       setValorConta(valorConta + valorParametro);
     }
@@ -33,6 +35,7 @@ export default function RootLayout() {
 
   function apagar(){
     setValorConta("0");
+    setOperacao("");
   }
 
   return (
