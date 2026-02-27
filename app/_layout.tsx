@@ -12,6 +12,10 @@ export default function RootLayout() {
   return (
     <SafeAreaView style={styles.container}>
 
+      <View style={styles.linhaOperacao}>
+        <text style={styles.textoOperacao}>0</text>
+      </View>
+
       <View style={styles.linha}>
         <TouchableOpacity style={styles.botao}>
           <Text style={styles.texto}>⌫</Text>
@@ -120,7 +124,12 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
 
-  botao:{
+  linhaOperacao: {
+    flexDirection: 'row-reverse',
+    marginBottom: 10
+  },
+
+  botao: {
     flex: 1,
     aspectRatio: 1,
     backgroundColor: '#333',
@@ -129,7 +138,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
 
-  botaoOperacao:{
+  botaoOperacao: {
     flex: 1,
     aspectRatio: 1,
     backgroundColor: '#ffa500',
@@ -141,6 +150,12 @@ const styles = StyleSheet.create({
   texto: {
     color: '#fff',
     fontSize: 24,
+    fontWeight: 'bold'
+  },
+
+  textoOperacao: {
+    color: '#fff',
+    fontSize: 60,
     fontWeight: 'bold'
   }
 })

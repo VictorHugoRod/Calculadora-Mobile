@@ -7,6 +7,10 @@ As operações devem ser feitas uma de cada vez
 O stakeholder não definiu a interface que deseja, sugeri a do Iphone e ele concordou
 
 
-Primeira Versão da Interface(Incompleta, falta o número na qual vamos operar):
 
+
+Primeira Versão da Interface(Incompleta, falta o número na qual vamos operar):
 ![Primeira Versão Interface](assets/images/primeira_versao_interface.png)
+
+Primeira versão da interface completa:
+![Primeira Versão Interface Completa](assets/images/primeira_interface_finalizada.png)
