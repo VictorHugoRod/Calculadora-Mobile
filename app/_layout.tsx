@@ -26,9 +26,13 @@ export default function RootLayout() {
         return;
     }else{
         setValorConta(valorConta + valorOperacao);
-        setOperacao(valorOperacao)
+        setOperacao(valorOperacao);
     }
       
+  }
+
+  function apagar(){
+    setValorConta("0");
   }
 
   return (
@@ -43,7 +47,7 @@ export default function RootLayout() {
           <Text style={styles.texto}>⌫</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity style={styles.botao} onPress={apagar}>
           <Text style={styles.texto}>AC</Text>
         </TouchableOpacity>
 
