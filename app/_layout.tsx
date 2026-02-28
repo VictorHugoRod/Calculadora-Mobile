@@ -50,6 +50,31 @@ export default function RootLayout() {
 
   }
 
+  function resultado(){
+    let valorUm = "", valorDois = "";
+    let operadorEncontrado = false;
+
+    if(operacao === "") return;
+
+    for(let i = 0; i < valorConta.length; i++){
+      if(valorConta[i] === "+" ||
+         valorConta[i] === "-" ||
+         valorConta[i] === "X" ||
+         valorConta[i] === "%" ||
+         valorConta[i] === "√"){
+          operadorEncontrado = true;
+          continue;
+      }
+
+      if (!operadorEncontrado) {
+        valorUm += valorConta[i];
+      } else {
+        valorDois += valorConta[i];
+      }
+  }
+
+  }
+
   return (
     <SafeAreaView style={styles.container}>
 
