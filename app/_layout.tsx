@@ -22,8 +22,8 @@ export default function RootLayout() {
   function adicionaOperacao(valorOperacao: string){
     if(valorConta.includes("+") ||
        valorConta.includes("-") ||
-       valorConta.includes("X") ||
-       valorConta.includes("%") ||
+       valorConta.includes("×") ||
+       valorConta.includes("÷") ||
        valorConta.includes("√")){
         return;
     }else{
@@ -59,8 +59,8 @@ export default function RootLayout() {
     for(let i = 0; i < valorConta.length; i++){
       if(valorConta[i] === "+" ||
          valorConta[i] === "-" ||
-         valorConta[i] === "X" ||
-         valorConta[i] === "%" ||
+         valorConta[i] === "×" ||
+         valorConta[i] === "÷" ||
          valorConta[i] === "√"){
           operadorEncontrado = true;
           continue;
@@ -77,9 +77,9 @@ export default function RootLayout() {
       setValorConta(String(parseFloat(valorUm) + parseFloat(valorDois)))
     }else if(operacao === "-"){
       setValorConta(String(parseFloat(valorUm) - parseFloat(valorDois)))
-    }else if(operacao === "X"){
+    }else if(operacao === "×"){
       setValorConta(String(parseFloat(valorUm) * parseFloat(valorDois)))
-    }else if(operacao === "%"){
+    }else if(operacao === "÷"){
       setValorConta(String((parseFloat(valorUm) / parseFloat(valorDois)).toFixed(2)))
     }else{
       if (valorUm === "0"){
@@ -109,24 +109,24 @@ export default function RootLayout() {
     <SafeAreaView style={styles.container}>
 
       <View style={styles.linhaOperacao}>
-        <text style={styles.textoOperacao}>{valorConta}</text>
+        <Text style={styles.textoOperacao}>{valorConta}</Text>
       </View>
 
       <View style={styles.linha}>
-        <TouchableOpacity style={styles.botao} onPress={apagarCaractere}>
+        <TouchableOpacity style={styles.botaoPrimeiraLinha} onPress={apagarCaractere}>
           <Text style={styles.texto}>⌫</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao} onPress={apagar}>
+        <TouchableOpacity style={styles.botaoPrimeiraLinha} onPress={apagar}>
           <Text style={styles.texto}>AC</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("√")}>
+        <TouchableOpacity style={styles.botaoPrimeiraLinha} onPress={() => adicionaOperacao("√")}>
           <Text style={styles.texto}>√</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("%")}>
-          <Text style={styles.texto}>%</Text>
+        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("÷")}>
+          <Text style={styles.texto}>÷</Text>
         </TouchableOpacity>
       </View>
 
@@ -143,8 +143,8 @@ export default function RootLayout() {
           <Text style={styles.texto}>9</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("X")}>
-          <Text style={styles.texto}>X</Text>
+        <TouchableOpacity style={styles.botaoOperacao} onPress={() => adicionaOperacao("×")}>
+          <Text style={styles.texto}>×</Text>
         </TouchableOpacity>
       </View>
 
@@ -241,6 +241,15 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+
+  botaoPrimeiraLinha: {
+    flex: 1,
+    aspectRatio: 1,
+    backgroundColor: '#525151',
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center'   
   },
 
   texto: {
