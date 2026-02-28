@@ -10,7 +10,7 @@ export default function RootLayout() {
   function adicionaValor(valorParametro: string){
     if(operacao === "√"){
       return;
-    }else if(valorConta === "0" && valorParametro != ","){
+    }else if(valorConta === "0" && valorParametro != "."){
       setValorConta(valorParametro);
       return;
     }
@@ -71,10 +71,40 @@ export default function RootLayout() {
       } else {
         valorDois += valorConta[i];
       }
-  }
+    }
 
-  }
+    if(operacao === "+"){
+      setValorConta(String(parseFloat(valorUm) + parseFloat(valorDois)))
+    }else if(operacao === "-"){
+      setValorConta(String(parseFloat(valorUm) - parseFloat(valorDois)))
+    }else if(operacao === "X"){
+      setValorConta(String(parseFloat(valorUm) * parseFloat(valorDois)))
+    }else if(operacao === "%"){
+      setValorConta(String((parseFloat(valorUm) / parseFloat(valorDois)).toFixed(2)))
+    }else{
+      if (valorUm === "0"){
+        setValorConta("0");
+        return;
+      } 
 
+      let i = parseFloat(valorUm);
+      let x = i;
+
+      while(Math.abs(x * x - i) > 0.00001){
+        x = (x + i / x) / 2;
+      }
+
+      let inteiro = Math.round(x);
+
+      if (Math.abs(x - inteiro) < 0.00001) {
+        setValorConta(String(inteiro));  
+      } else {
+        setValorConta(x.toFixed(2));    
+      }
+    }
+
+    setOperacao("");
+  }
   return (
     <SafeAreaView style={styles.container}>
 
@@ -163,11 +193,11 @@ export default function RootLayout() {
           <Text style={styles.texto}>0</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor(",")}>
-          <Text style={styles.texto}>,</Text>
+        <TouchableOpacity style={styles.botao} onPress={() => adicionaValor(".")}>
+          <Text style={styles.texto}>.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.botaoOperacao}>
+        <TouchableOpacity style={styles.botaoOperacao} onPress={resultado}>
           <Text style={styles.texto}>=</Text>
         </TouchableOpacity>
       </View>
