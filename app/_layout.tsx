@@ -5,7 +5,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 export default function RootLayout() {
   const [valorConta, setValorConta] = useState("0");
   const [operacao, setOperacao] = useState("");
-  const [zeroAdicionado, setZeroAcidionado] = useState(false)
 
   function adicionaValor(valorParametro: string){
     if(operacao === "√"){
@@ -72,6 +71,8 @@ export default function RootLayout() {
         valorDois += valorConta[i];
       }
     }
+
+    if(operacao != "√" && valorDois === "") return;
 
     if(operacao === "+"){
       setValorConta(String(parseFloat(valorUm) + parseFloat(valorDois)))
