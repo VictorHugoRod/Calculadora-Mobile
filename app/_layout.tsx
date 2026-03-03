@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function RootLayout() {
@@ -187,7 +187,7 @@ export default function RootLayout() {
 
       <View style={styles.linha}>
         <TouchableOpacity style={styles.botao}>
-          <Text style={styles.texto}>+/-</Text>
+          <Image source={require('../assets/images/happy-cat.jpg')} style={{width: 50, height: 50}}></Image>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.botao} onPress={() => adicionaValor("0")}>

@@ -29,15 +29,11 @@ Layout em tema escuro, display no topo e botões circulares. Operadores (÷, ×,
 
 **Protótipo (primeira versão, incompleta):**
 
-![Primeira versão da interface](assets/images/primeira_versao_interface.png)
-
-**Primeira versão completa:**
-
 ![Primeira interface finalizada](assets/images/primeira_interface_finalizada.png)
 
 **Interface final:**
 
-![Interface final](assets/images/interface_final.png)
+![Interface final](assets/images/interface_gatinho.png)
 
 ---
 
